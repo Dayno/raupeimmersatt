@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Component from "../components/Component";
 
-const Home = () => {
+const About = () => {
   return (
     <div className="h-screen bg-primary flex justify-center items-center gap-10">
       <div className="h-48 w-96 bg-default shadow-lg rounded-lg flex flex-col gap-6 justify-center items-center">
@@ -16,4 +16,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default About;
