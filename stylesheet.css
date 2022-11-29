@@ -1,0 +1,443 @@
+body {
+    height: 100vh;
+    margin: 0;
+    background: #BEBEB9;
+}
+
+a,
+p {
+    margin: 0;
+    text-decoration: none;
+}
+
+.font-londrina {
+    font-family: 'Londrina Solid', cursive;
+}
+
+.font-fira {
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+header {
+    /* positioning */
+    height: 88px;
+    width: 1024px;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 32px;
+    padding-right: 32px;
+
+    /* apple-green */
+    background: #99BB44;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.08);
+
+    /* handle items  */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-weight: 400;
+    font-size: 36px;
+    color: #FFFDFD;
+}
+
+.content {
+    /* positioning */
+    flex: 1;
+    width: 1024px;
+    margin: auto;
+    padding: 32px;
+
+    background: #FFFDFD;
+    /* background-image: url("./assets/Black-and-white-food-drawing-vector-art-Graphics-1\ 1.png"); */
+}
+
+
+.action-container {
+    /* positioning */
+    height: 100px;
+    width: 1024px;
+    margin: auto;
+    padding-left: 32px;
+    padding-right: 32px;
+
+    /* white */
+    background: #FFFDFD;
+    /* button_hover */
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.12);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.grid-col-1 {
+    font-weight: 500;
+    text-align: start;
+    grid-column: span 1 / span 1;
+}
+
+.grid-col-2 {
+    font-weight: 500;
+    text-align: start;
+    grid-column: span 2 / span 2;
+}
+
+.grid-col-3 {
+    font-weight: 500;
+    text-align: start;
+    grid-column: span 3 / span 3;
+}
+
+.grid-col-4 {
+    font-weight: 500;
+    text-align: start;
+    grid-column: span 4 / span 4;
+}
+
+.grid-col-6 {
+    font-weight: 500;
+    text-align: start;
+    grid-column: span 6 / span 6;
+}
+
+.error {
+    color: red;
+    font-size: 10px;
+}
+
+/* ------- 
+Foodsaver start
+ --------- */
+
+.wrap-title {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    /* text dark-green */
+    color: #446622;
+    font-size: 48px;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* ------- 
+Foodsaver Hinzufügen
+ --------- */
+
+.wrapper {
+    display: flex;
+}
+
+.grid {
+    /* text concrete  */
+    color: #BEBEB9;
+
+    /* handle items  */
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.grid-title {
+    height: 28px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input {
+    width: 100%;
+    /* height: 46px; */
+    /* alabaster */
+    background: #F2F1F0;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    /* onyx */
+    color: #1E212B;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.category-grid {
+    margin: 8px 0;
+    /* handle items  */
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.category-item {
+    font-size: 14px;
+    color: #99BB44;
+    /* sand  */
+    border: solid 2px #E5E5E3;
+    border-radius: 20px;
+    padding: 20px;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.radio-container.kategorie input {
+    height: 125px;
+    width: 155px;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    margin: 0;
+}
+
+.radio-container input:checked~.category-item {
+    border: solid 2px #99BB44;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.haltbarkeit-grid {
+    margin-top: 8px;
+    margin-bottom: 18px;
+    /* handle items  */
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.haltbarkeit-item {
+    /* onyx */
+    color: #1E212B;
+    /* sand  */
+    border: solid 2px #E5E5E3;
+    border-radius: 8px;
+    padding: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    cursor: pointer;
+}
+
+.radio-container.haltbarkeit input {
+    height: 45px;
+    width: 240px;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    margin: 0;
+}
+
+.radio-container input:checked~.haltbarkeit-item {
+    border: solid 2px #99BB44;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* ------- 
+Foodsaver Übersicht
+ --------- */
+
+.wrap {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: scroll;
+}
+
+.add-icon {
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.table {
+    width: 100%;
+}
+
+.table-headers {
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    /* text concrete  */
+    color: #BEBEB9;
+    /* divider sand  */
+    border-bottom: solid 2px #E5E5E3;
+
+    /* handle items  */
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.table-items {
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    /* text concrete  */
+    color: #1E212B;
+    /* divider sand  */
+    border-bottom: solid 2px #E5E5E3;
+
+    /* handle items  */
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.action-container div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /* text concrete  */
+    color: #BEBEB9;
+    font-weight: 600;
+}
+
+.action-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /* text concrete  */
+    color: #BEBEB9;
+
+}
+
+.action-wrap a:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 54px;
+    width: 228px;
+
+    /* border sand  */
+    box-sizing: border-box;
+    border: solid 2px #E5E5E3;
+    border-radius: 16px;
+    /* text apple  */
+    color: #99BB44;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.next-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 54px;
+    width: 228px;
+
+    /* apple-green */
+    background: #99BB44;
+    border: solid 0px #99BB44;
+    border-radius: 16px;
+    /* text apple  */
+    color: #FFFDFD;
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.final-button {
+    margin-top: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 54px;
+    width: 100%;
+
+    /* apple-green */
+    background: #99BB44;
+    border: solid 0px #99BB44;
+    border-radius: 16px;
+    /* text apple  */
+    color: #FFFDFD;
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* -------- Final Check ---------- */
+
+.reminder {
+    line-height: 26px;
+    font-size: 18px;
+}
+
+.reminder h1 {
+    font-weight: 400;
+    font-size: 28px;
+}
+
+.reminder h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.check-item {
+    margin-top: 25px; 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.check-item input {
+    height: 32px;
+    width: 32px;
+    opacity: 0;
+    cursor: pointer;
+    margin: 0;
+    z-index: 10;
+}
+
+.check-item img {
+    position: absolute;
+    cursor: pointer;
+}
+.check-item img:last-child {
+    opacity: 0;
+}
+
+.check-item input:checked~img {
+    opacity: 1;
+}
