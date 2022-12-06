@@ -1,7 +1,7 @@
 body {
-    height: 100vh;
+    height: 768px;
     margin: 0;
-    background: #BEBEB9;
+    background: #858585;
 }
 
 a,
@@ -31,8 +31,6 @@ header {
     margin: auto;
     margin-top: 0;
     margin-bottom: 0;
-    padding-left: 32px;
-    padding-right: 32px;
 
     /* apple-green */
     background: #99BB44;
@@ -50,26 +48,31 @@ header h1 {
     color: #FFFDFD;
 }
 
+header a {
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
 .content {
     /* positioning */
+    position: relative;
     flex: 1;
     width: 1024px;
     margin: auto;
-    padding: 32px;
-
     background: #FFFDFD;
-    /* background-image: url("./assets/Black-and-white-food-drawing-vector-art-Graphics-1\ 1.png"); */
+}
+
+.content form {
+    padding: 32px;
 }
 
 
 .action-container {
     /* positioning */
-    height: 100px;
+    height: 94px;
     width: 1024px;
     margin: auto;
-    padding-left: 32px;
-    padding-right: 32px;
-
+    z-index: 10;
     /* white */
     background: #FFFDFD;
     /* button_hover */
@@ -78,6 +81,14 @@ header h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.action-container div:first-child {
+    padding-left: 32px;
+}
+
+.action-container div:last-child {
+    padding-right: 32px;
 }
 
 
@@ -116,14 +127,26 @@ header h1 {
     font-size: 10px;
 }
 
+.flex {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 16px;
+}
+
 /* ------- 
 Foodsaver start
  --------- */
 
+.background {
+    position: absolute;
+    left: 55px;
+}
+
 .wrap-title {
     margin: 0;
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -133,11 +156,22 @@ Foodsaver start
 }
 
 .title {
-    /* text dark-green */
-    color: #446622;
+    /* onyx */
+    color: #1E212B;
     font-size: 48px;
     font-weight: 400;
     text-align: center;
+}
+
+.cancel-on-start {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 20px 32px;
+}
+
+.cancel-on-start div {
+    width: 228px;
 }
 
 /* ------- 
@@ -148,22 +182,31 @@ Foodsaver Hinzufügen
     display: flex;
 }
 
+.grid-spacing {
+    height: 100%;
+    display: flex;
+    gap: 48px;
+}
+
 .grid {
+    width: 50%;
     /* text concrete  */
     color: #BEBEB9;
 
     /* handle items  */
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 24px 16px;
+    height: 100%;
 }
 
 .grid-title {
-    height: 28px;
+    height: 22px;
     display: flex;
     align-items: center;
     gap: 8px;
+    margin-bottom: 6px;
 }
 
 .input {
@@ -174,7 +217,6 @@ Foodsaver Hinzufügen
     border: none;
     border-radius: 8px;
     padding: 12px 20px;
-    margin: 8px 0;
     box-sizing: border-box;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     /* onyx */
@@ -187,8 +229,14 @@ Foodsaver Hinzufügen
     outline: none;
 }
 
+.kuehlcheck {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
 .category-grid {
-    margin: 8px 0;
     /* handle items  */
     display: grid;
     align-items: center;
@@ -203,7 +251,7 @@ Foodsaver Hinzufügen
     /* sand  */
     border: solid 2px #E5E5E3;
     border-radius: 20px;
-    padding: 20px;
+    padding: 12px 0px;
 
     display: flex;
     flex-flow: column;
@@ -213,8 +261,8 @@ Foodsaver Hinzufügen
 }
 
 .radio-container.kategorie input {
-    height: 125px;
-    width: 155px;
+    height: 109px;
+    width: 141px;
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -226,45 +274,49 @@ Foodsaver Hinzufügen
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
-.haltbarkeit-grid {
-    margin-top: 8px;
-    margin-bottom: 18px;
-    /* handle items  */
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.haltbarkeit-item {
-    /* onyx */
-    color: #1E212B;
-    /* sand  */
-    border: solid 2px #E5E5E3;
-    border-radius: 8px;
-    padding: 12px;
-
+.rangeslider {
+    width: 100%;
+    margin-top: 12px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-
-    cursor: pointer;
 }
 
-.radio-container.haltbarkeit input {
-    height: 45px;
-    width: 240px;
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
+.slider {
+    -webkit-appearance: none;
+    width: 445px;
+    height: 28px;
+    outline: none;
+    opacity: 0.8;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    /* background-color: #BEBEB9; */
+    background-image: url("./assets/range-thumb.svg");
     margin: 0;
 }
 
-.radio-container input:checked~.haltbarkeit-item {
-    border: solid 2px #99BB44;
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    /* margin-left: 8px; */
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #99BB44;
+    border-radius: 50%;
+    /* opacity: 0.2; */
+    /* background-image: url("./assets/slider-thumb.svg"); */
+}
+
+.output {
+    padding-top: 6px;
+    width: 100%;
+    font-size: 12px;
 }
 
 /* ------- 
@@ -272,16 +324,18 @@ Foodsaver Übersicht
  --------- */
 
 .wrap {
-    height: 100%;
-    width: 100%;
     display: flex;
     flex-direction: column;
-
+    padding: 32px;
+    height: 522px;
     overflow-y: scroll;
 }
 
 .add-icon {
-    width: auto;
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
 }
@@ -336,6 +390,7 @@ Foodsaver Übersicht
     /* text concrete  */
     color: #BEBEB9;
 
+    width: 456px;
 }
 
 .action-wrap a:first-child {
@@ -344,7 +399,7 @@ Foodsaver Übersicht
     align-items: center;
 
     height: 54px;
-    width: 228px;
+    width: 100%;
 
     /* border sand  */
     box-sizing: border-box;
@@ -362,7 +417,7 @@ Foodsaver Übersicht
     align-items: center;
 
     height: 54px;
-    width: 228px;
+    width: 100%;
 
     /* apple-green */
     background: #99BB44;
@@ -399,6 +454,9 @@ Foodsaver Übersicht
 /* -------- Final Check ---------- */
 
 .reminder {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
     line-height: 26px;
     font-size: 18px;
 }
@@ -415,10 +473,9 @@ Foodsaver Übersicht
 }
 
 .check-item {
-    margin-top: 25px; 
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .check-item input {
@@ -428,13 +485,15 @@ Foodsaver Übersicht
     cursor: pointer;
     margin: 0;
     z-index: 10;
+    position: absolute;
 }
 
 .check-item img {
-    position: absolute;
     cursor: pointer;
 }
+
 .check-item img:last-child {
+    position: absolute;
     opacity: 0;
 }
 

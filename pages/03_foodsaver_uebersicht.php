@@ -1,22 +1,32 @@
 <!-- ----------- PHP ---------- -->
 <?php
 session_start();
+// TEMPORÄR ABGESCHALTET
+// require_once("../scripts/dbcontroller.php");
+// $db_handle = new DBController();
+// $connection = $db_handle->connectDB();
 
-function consolelog($data, bool $quotes = false)
-{
-  $output = json_encode($data);
-  if ($quotes) {
-    echo "<script>console.log('{$output}' );</script>";
-  } else {
-    echo "<script>console.log({$output} );</script>";
-  }
-}
-
+// Session Objekt wird lokal gespeichert
 $array = json_decode(json_encode($_SESSION["array"]), true);
-$allergene = "";
-$comment = "";
+$dbeintrag = json_decode(json_encode($_SESSION["dbeintrag"]), true);
 
-consolelog($array);
+// TEMPORÄR ABGESCHALTET
+// Vollständiger Array mit allen Einträgen wird an die Datenbank übertragen. Hier kommen die Querys hin 
+// function sendList($dbeintrag, $connection) {
+//   foreach ($dbeintrag as $key => $value) {
+//     $LMbez = $value['Bezeichnung'];
+//     $LMHer = $value['Herkunft'];
+//     mysqli_select_db($connection, "raupeimmersatt");
+//     $query = "INSERT INTO `lebensmittel`(`Bezeichnung`,`Herkunft`) VALUES ('$LMbez','$LMHer') ";
+//     mysqli_query($connection, $query);
+//     header("Location: ./04_final_check.php");
+//   };
+// }
+// Datenbank Query Trigger
+if (isset($_GET['send'])) {
+  // sendList($dbeintrag, $connection);
+  header("Location: ./04_final_check.php");
+}
 
 ?>
 
@@ -40,21 +50,24 @@ consolelog($array);
 <body class="font-fira">
   <div class="container">
     <header>
-      <a href="/raupeimmersatt"> <img src="../assets/logo.svg" alt="logo" /></a>
+      <a> <img src="../assets/logo.svg" alt="logo" /></a>
+      <!-- OVERLAY -->
       <a href="/raupeimmersatt"> <img src="../assets/icon_help.svg" alt="icon_help" /></a>
     </header>
     <div class="content">
       <div class="wrap">
+        <!-- Tabelle -->
         <table class="table">
           <tr class="table-headers">
             <th class="grid-col-3">Lebensmittel</th>
+            <th class="grid-col-2">Kistennr</th>
             <th class="grid-col-2">Menge</th>
-            <th class="grid-col-2">Genießbar</th>
-            <th class="grid-col-3">Inhaltsstoffe</th>
+            <th class="grid-col-3">Genießbar</th>
             <th class="grid-col-1"></th>
             <th class="grid-col-1"></th>
           </tr>
           <?php
+          // Tabelleneintrag
           // LOOP TILL END OF DATA
           foreach ($array as $row) {
           ?>
@@ -62,20 +75,19 @@ consolelog($array);
             <td class="grid-col-3">
               <?php echo $row['Lebensmittel'] ?>
             </td>
+            <td class="grid-col-2 flex">
+              <?php echo $row['Kistennr'] ?>
+              <?php if ($row['Kuehlen'] == true)
+              echo "<img src='../assets/freeze_icon.svg' alt='freeze_icon' />"; ?>
+            </td>
             <td class="grid-col-2">
               <?php echo $row['Menge'] ?> Kg
             </td>
-            <td class="grid-col-2">
+            <td class="grid-col-3">
               <?php echo $row['Genießbar'] ?>
             </td>
-            <td class="grid-col-3">
-              <?php if (empty($allergene))
-              echo "Keine"; ?>
-            </td>
             <td class="grid-col-1">
-              
-              <?php if (empty($comment))
-              echo "<img src='../assets/comment_icon.svg' alt='comment_icon' />"; ?>
+              <img src='../assets/comment_icon.svg' alt='comment_icon' />
             </td>
             <td class="grid-col-1">
               <img src="../assets/edit_icon.svg" alt="edit_icon" />
@@ -87,7 +99,8 @@ consolelog($array);
 
         </table>
         <div class="add-icon">
-          <a href="foodsaver_hinzufuegen.php">
+          <!-- NICHT ÄNDERN -->
+          <a href="02_foodsaver_hinzufuegen.php">
             <img src="../assets/add_icon.svg" alt="add_icon" />
           </a>
         </div>
@@ -95,12 +108,15 @@ consolelog($array);
     </div>
     <div class="action-container">
       <div>
+        <!-- OVERLAY -->
         <a href="/raupeimmersatt"> <img src="../assets/icon_help_mini.svg" alt="icon_help" /></a>
         <p>Verstauen von Lebensmitteln</p>
       </div>
       <div class="action-wrap">
+        <!-- OVERLAY UND WEITERLEITUNG ZUR STARTSEITE -->
         <a href="/raupeimmersatt">Abbrechen</a>
-        <a class="next-button" href="./final_check.php">Absenden</a>
+        <!-- NICHT ÄNDERN -->
+        <a href='03_foodsaver_uebersicht.php?send=true' class="next-button">Abschließen</a>
       </div>
     </div>
   </div>

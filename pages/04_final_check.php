@@ -2,8 +2,9 @@
 // --- CREATE SESSION --- 
 session_start();
 
+// Array wird geleert 
 $_SESSION["array"] = array();
-
+// Session wird zerstört und resettet
 session_destroy();
 ?>
 
@@ -28,9 +29,10 @@ session_destroy();
 <body>
     <div class="container">
         <header>
-            <a href="/raupeimmersatt">
+            <a>
                 <img src="../assets/logo.svg" alt="logo" />
             </a>
+            <!-- OVERLAY -->
             <a href="/raupeimmersatt">
                 <img src="../assets/icon_help.svg" alt="icon_help" />
             </a>
@@ -38,18 +40,20 @@ session_destroy();
         <div class="content">
             <div class="wrap-title font-fira">
                 <div class="reminder">
-                    <h1 class="font-londrina">
-                        DANKE FÜR DEINE SPENDE!
-                    </h1>
-                    <h2>
-                        Bitte vergiss nicht
-                    </h2>
-                    <p>
-                        ... die Oberflächen abzuwischen, <br />
-                        ... das Licht auszumachen, <br />
-                        ... die Türe zu schließen, <br />
-                        ... dich an der Theke zu verabschieden.
-                    </p>
+                    <div>
+                        <h1 class="font-londrina">
+                            DANKE FÜR DEINE SPENDE!
+                        </h1>
+                        <h2>
+                            Bitte vergiss nicht
+                        </h2>
+                        <p>
+                            ... die Oberflächen abzuwischen, <br />
+                            ... das Licht auszumachen, <br />
+                            ... die Türe zu schließen, <br />
+                            ... dich an der Theke zu verabschieden.
+                        </p>
+                    </div>
                     <div class="check-item">
                         <input name="check" type="checkbox">
                         <img src="../assets/checkbox.svg" alt="checkbox" />
@@ -57,6 +61,7 @@ session_destroy();
                         Ich habe die letzte Box genommen.
                     </div>
                 </div>
+                <!-- WEITERLEITUNG ZUM ENDSCREEN-->
                 <a class="final-button" href="/raupeimmersatt/">Alles klar</a>
             </div>
         </div>
